@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div><button id="버튼">버튼</button></div>
+    <script>
+      // var 함수 = () => {
+      //   console.log(this);
+      // };
+      // 함수();
+      // 함수2 = function () {
+      //   console.log(this);
+      // };
+      // 함수2();
+      // [(1, 2, 3, 4)].forEach((a) => console.log(a));
+
+      // document.getElementById("버튼").addEventListener("click", (e) => {
+      //   console.log("arrow" + this);
+      //   // console.log(e.currentTarget);
+      // });
+      // document.getElementById("버튼").addEventListener("click", function (e) {
+      //   console.log(this);
+      // });
+
+      var 오브젝트 = {
+        숫자들: [1, 2, 3],
+        함수: () => {
+          console.log("arrow", this);
+        },
+        함수2: function () {
+          console.log(this);
+          오브젝트.숫자들.forEach((a) => {
+            console.log(this);
+          });
+          오브젝트.숫자들.forEach(function (a) {
+            console.log(this);
+          });
+          [3, 2, 1].forEach(function (a) {
+            console.log(this);
+          }, this);
+        },
+      };
+      오브젝트.함수();
+      오브젝트.함수2();
+
+      // let obj = {
+      //   array: [1, 2, 3],
+      //   foo: function (a, b) {
+      //     console.log(this, a, b); // ?
+      //   },
+      // };
+
+      // obj.foo(4, 5);
+      // [10, 20, 30].forEach(obj.foo);
+    </script>
+  </body>
+</html>

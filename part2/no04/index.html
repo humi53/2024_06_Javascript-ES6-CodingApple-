@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var 학생1 = {
+        name: "Kim",
+        age: 15,
+        sayHi: function () {
+          console.log("안녕하세요 " + this.name + "입니다");
+        },
+      };
+
+      function Strudent(name) {
+        this.name = name;
+        this.age = 15;
+        this.sayHi = function () {
+          console.log("안녕하세요 " + this.name + "입니다");
+        };
+      }
+
+      var 학생1 = new Strudent("park");
+      var 학생2 = new Strudent("kim");
+
+      학생1.sayHi();
+      학생2.sayHi();
+
+      function Product(name, price) {
+        this.name = name;
+        this.price = price;
+        this.subtax = function () {
+          console.log(this.price * 0.1);
+        };
+      }
+      var 상품1 = new Product("shirts", 50000);
+      var 상품2 = new Product("pants", 60000);
+
+      상품1.subtax();
+      상품2.subtax();
+    </script>
+  </body>
+</html>

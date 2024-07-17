@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      class 할아버지 {
+        constructor(name) {
+          this.성 = "Kim";
+          this.이름 = name;
+        }
+        sayHi() {
+          console.log("안녕 저는 할아버지에요");
+        }
+      }
+
+      var 할아버지1 = new 할아버지("만덕");
+
+      class 아버지 extends 할아버지 {
+        constructor(name) {
+          super(name);
+          this.나이 = 50;
+        }
+        sayHi() {
+          console.log("안녕 저는 아버지에요");
+          super.sayHi();
+        }
+      }
+      var 아버지1 = new 아버지("만수");
+    </script>
+  </body>
+</html>

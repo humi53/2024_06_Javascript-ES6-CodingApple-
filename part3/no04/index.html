@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function 첫째함수(함수) {
+        console.log(1);
+        함수();
+      }
+      function 둘째함수() {
+        console.log(2);
+      }
+      첫째함수(둘째함수);
+      // 첫째함수(function () {
+      //   둘째함수(function () {
+      //     셋째함수(function () {});
+      //   });
+      // });
+
+      // 첫째함수()
+      //   .then(function () {})
+      //   .then(function () {});
+
+      var 프로미스 = new Promise(function (resolve, reject) {
+        // resolve(); // 성공
+        // reject(); // 실패
+        // var 어려운연산 = 1 + 1;
+        // resolve(어려운연산);
+        setTimeout(() => {
+          resolve();
+        }, 5000);
+      });
+      프로미스
+        .then(function (결과) {
+          console.log(결과 + "성공했어요");
+        })
+        .catch(function () {
+          console.log("실패했어요");
+        });
+      // 프로미스.catch(function () {}); // 실패했을때
+      // 프로미스.finally(function () {}); // 성공과 관계없이 실행했다면
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      class Dog {
+        constructor(type, color) {
+          this.type = type;
+          this.color = color;
+        }
+        한살먹기() {
+          if (this instanceof Cat) {
+            this.age++;
+          } else {
+            console.error("실패");
+          }
+        }
+      }
+
+      class Cat extends Dog {
+        constructor(type, color, age) {
+          super(type, color);
+          this.age = age;
+        }
+      }
+      var 강아지1 = new Dog("말티즈", "white");
+      var 고양이1 = new Cat("코숏", "white", 5);
+
+      class Unit {
+        constructor(공격력 = 5, 체력 = 100) {
+          this.damage = 공격력;
+          this.hp = 체력;
+        }
+        get battlePoint() {
+          return this.damage + this.hp;
+        }
+        set heal(힐) {
+          this.hp = this.hp + 힐;
+        }
+      }
+      var sam = new Unit();
+      console.log(sam.battlePoint);
+      sam.heal = 50;
+
+      var data = {
+        odd: [],
+        even: [],
+        save: function (...num) {
+          num.forEach((e) => {
+            if (e % 2 == 0) {
+              this.even.push(e);
+            } else {
+              this.odd.push(e);
+            }
+          });
+        },
+        get getData() {
+          return [...this.odd, ...this.even].sort();
+        },
+      };
+      data.save(1, 2, 3, 4, 5);
+      console.log(data.getData);
+    </script>
+  </body>
+</html>

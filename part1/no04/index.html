@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="버튼">버튼이에요</button>
+
+    <script>
+      document.getElementById("버튼").addEventListener("click", function () {
+        setTimeout(() => {
+          console.log(this.innerHTML);
+        }, 1000);
+      });
+    </script>
+
+    <script>
+      var 사람 = {
+        name: "손흥민",
+        sayHi: function () {
+          console.log("안녕 나는 " + this.name);
+        },
+      };
+
+      사람.sayHi();
+
+      var 자료 = {
+        data: [1, 2, 3, 4, 5],
+        전부더하기: function () {
+          var sum = 0;
+          this.data.forEach((e) => {
+            sum += e;
+          });
+          console.log(sum);
+        },
+      };
+      자료.전부더하기();
+    </script>
+  </body>
+</html>

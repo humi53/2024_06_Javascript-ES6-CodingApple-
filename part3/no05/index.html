@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <img id="test" src="https://codingapple1.github.io/kona.jpg" />
+    <script>
+      var imgloading = new Promise(function (resolve, reject) {
+        var img = document.querySelector("#test");
+        img.addEventListener("load", () => {
+          resolve();
+        });
+        img.addEventListener("error", () => {
+          reject();
+        });
+      });
+
+      imgloading
+        .then(function () {
+          console.log("이미지로딩 성공");
+        })
+        .catch(function () {
+          console.log("이미지로딩 실패");
+        });
+
+      var ajaxloding = ajaxPromise("https://codingapple1.github.io/hello.txt ");
+
+      function ajaxPromise(URL) {
+        return new Promise((resolve, reject) => {
+          $.get(URL).done(function (e) {
+            resolve(e);
+          });
+        });
+      }
+
+      ajaxloding
+        .then((e) => {
+          console.log(e);
+          return ajaxPromise("https://codingapple1.github.io/hello2.txt ");
+        })
+        .then((e) => {
+          console.log(e);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn_add">더하기</button>
+    <script>
+      async function add() {
+        var promise = new Promise(function (resolve, reject) {
+          var btn_add = document.querySelector(".btn_add");
+          btn_add.addEventListener("click", () => {
+            resolve("성공했어요");
+          });
+        });
+        try {
+          var 결과 = await promise;
+          console.log(결과);
+        } catch (error) {
+          console.log("실패");
+        }
+      }
+
+      add();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var 오브젝트 = { name: "Kim", age: 30 };
+
+      // Object.getOwnPropertyDescriptor(오브젝트, "name");
+
+      for (const key in 오브젝트) {
+        console.log(key + 오브젝트[key]);
+      }
+
+      class 부모 {}
+      부모.prototype.name = "Park";
+      var 오브젝트 = new 부모();
+      for (const key in 오브젝트) {
+        if (오브젝트.hasOwnProperty(key)) {
+          console.log(오브젝트[key]);
+        }
+      }
+
+      var array = [2, 3, 4, 5];
+      // for (const iterator of "sagsag") {
+      //   console.log(iterator);
+      // }
+
+      array[Symbol.iterator]();
+
+      let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      // for (const i of data) {
+      //   for (const j of data) {
+      //     console.log(`${i} x ${j} = ${i * j}`);
+      //   }
+      // }
+
+      var products = [
+        {
+          name1: "chair",
+          price1: 7000,
+        },
+        {
+          name2: "sofa",
+          price: 5000,
+        },
+        {
+          name1: "desk",
+          price3: 9000,
+        },
+      ];
+
+      for (const item of products) {
+        for (const key in item) {
+          if (/\d/.test(key)) {
+            // console.log(key);
+            var newKey = key.replace(/\d+/g, "");
+            var newValue = item[key];
+            item[newKey] = newValue;
+            delete item[key];
+          }
+        }
+      }
+
+      for (const iterator of products) {
+        console.log(iterator);
+      }
+    </script>
+  </body>
+</html>
